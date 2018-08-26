@@ -1,0 +1,24 @@
+@import '../_fluid.scss';
+
+h1 {
+	@include fluid(font-size, 20px, 100px, horizontal, 500px, 1000px);
+}
+
+.foo {
+	@include fluid(padding, 20px 0 20px 0, 50px 40px 50px 60px, horizontal, 500px, 1000px);
+	border: 1px solid red;
+}
+
+.bar-container {
+	border: 1px solid yellow;
+}
+
+.bar {
+	@include fluid(margin, 20px 10px 20px 30px, 50px 40px 50px 60px, horizontal, 500px, 1000px);
+	background-color: red;
+}
+
+.foo-bar {
+	@include fluid(margin, 20px 10px 20px 30px, 50px 40px 50px 60px, vertical, 500px, 1000px);
+	background-color: red;
+}
