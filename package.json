@@ -2,9 +2,13 @@
   "name": "sass-fluid",
   "version": "0.0.1",
   "description": "Mixin for fluid values in SASS",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/strunkie30/sass-fluid.git"
+  },
   "main": "_fluid.scss",
   "scripts": {
-    "ci": "start-server-and-test example http://localhost:9090 test:cypress",
+    "ci": "start-server-and-test example http://localhost:8080 test:cypress",
     "example": "cross-env NODE_ENV=production webpack-dev-server --config webpack.config.js",
     "test:cypress": "cypress run"
   },
