@@ -1,0 +1,4 @@
+/node-modules
+/test/dist
+/cypress/videos
+/cypress/screenshots
