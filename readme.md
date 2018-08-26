@@ -47,8 +47,8 @@ Create fluid values for SCSS, makes it easy to build responsive websites.
     create a fluid padding value between 20px 40px 20px 60px and 40px 60px 40px 80px
     use the window size 400px -> 800px vertical.
     
-    window.height <= 400px = 20px 40px 20px 60px;
-    window.height >= 800px = 40px 60px 40px 80px;
+    window.height <= 400px = paddding = 20px 40px 20px 60px;
+    window.height >= 800px = paddding = 40px 60px 40px 80px;
 */
 
 .foo {
