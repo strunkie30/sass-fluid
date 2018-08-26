@@ -1,0 +1,78 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function map-get-deep($map, $keys...) {
+    @each $key in $keys {
+        $map: map - get($map, $key);
+    }
+    
+    @return $map;
+}
+
+@mixin fluid($type, $minValues, $maxValues, $direction: 'horizontal', $breakpointMin: 640px, $breakpointMax: 1500px) {
+    $valueLength: 0;
+    $_minValue: null;
+    $_maxValue: null;
+    $_fluidValue: null;
+    $_direction: null;
+    $_breakpointType: null;
+
+    // check direction
+    @if $direction == 'vertical' {
+        $_direction: 'vh';
+        $_breakpointType: 'height';
+    }
+    @else if $direction == 'horizontal' {
+        $_direction: 'vw';
+        $_breakpointType: 'width';
+    }
+    @else {
+        @error 'Unknown direction only vertical and horizontal are supported';
+    }
+    // check if value length match
+    @if length($minValues) != length($maxValues) {
+        @error 'Min value length `#{$minValues}`(#{length($minValues)}) does not match with max value length `#{$maxValues}`(#{length($maxValues)})';
+    }
+    @else {
+        $valueLength: length($maxValues);
+    }
+
+    @for $i from 1 through $valueLength {
+        $minValue: nth($minValues, $i);
+        $maxValue: nth($maxValues, $i);
+        $formula: $minValue;
+
+        /*
+        check if we need to do some calculations, we don't need a calculation if the min and max values are the same.
+        */
+        @if $minValue != $maxValue {
+            // because we can not divide 0 set the zero's to 1px.
+            @if $minValue == 0 {
+                $minValue: 1px;
+            }
+
+            @if $maxValue == 0 {
+                $maxValue: 1px;
+            }
+
+            $formula: calc(#{$minValue} + #{strip-unit($maxValue - $minValue)} * ((100#{$_direction} - #{$breakpointMin}) / #{strip-unit($breakpointMax - $breakpointMin)}));  
+        }
+
+        $_fluidValue: #{$_fluidValue} #{$formula};
+        $_minValue: #{$_minValue} #{$minValue};
+        $_maxValue: #{$_maxValue} #{$maxValue};
+    }
+
+        // when we are between the breakpoint render a calculation value
+    #{$type}: #{$_fluidValue};
+
+    //otherwise set fixed values
+    @media screen and (max-#{$_breakpointType}: $breakpointMin) {
+        #{$type}: #{$_minValue};
+    }
+
+    @media screen and (min-#{$_breakpointType}: $breakpointMax) {
+        #{$type}: #{$_maxValue};
+    }
+}
