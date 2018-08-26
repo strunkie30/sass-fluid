@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 context('font-size test', () => {
     it('has font-sizes for desktop', () => {
     	cy.visit('/');

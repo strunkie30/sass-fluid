@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 context('Margin test', () => {
     it('has margins for desktop', () => {
     	cy.visit('/');

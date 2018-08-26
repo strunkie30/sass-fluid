@@ -1,5 +1,3 @@
-/// <reference types="Cypress" />
-
 context('Padding test', () => {
     it('has paddings for desktop', () => {
     	cy.visit('/');
