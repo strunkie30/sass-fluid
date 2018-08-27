@@ -4,6 +4,11 @@
 
 Create fluid values for SCSS, makes it easy to build responsive websites.
 
+## How to use it
+
+1. install with ```npm install sass-fluid --save```
+2. import in project ```scss @import '~sass-fluid';```
+
 ## Examples
 
 ```scss
