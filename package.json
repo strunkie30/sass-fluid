@@ -1,10 +1,10 @@
 {
   "name": "sass-fluid",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Mixin for fluid values in SASS",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/strunkie30/sass-fluid.git"
+    "type": "git",
+    "url": "https://github.com/strunkie30/sass-fluid.git"
   },
   "main": "_fluid.scss",
   "scripts": {
