@@ -10,23 +10,24 @@
   "scripts": {
     "ci": "start-server-and-test example http://localhost:8080 test:cypress",
     "example": "cross-env NODE_ENV=production webpack-dev-server --config webpack.config.js",
-    "test:cypress": "cypress run"
+    "cy:test": "cypress run",
+    "cy:open": "cypress open"
   },
   "author": "Kevin Meijer",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^6.0.3",
-    "css-loader": "^3.2.1",
-    "cypress": "^3.7.0",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^8.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "cypress": "^10.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
     "start-server-and-test": "^1.10.6",
-    "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }
